@@ -1,12 +1,17 @@
 # Image_enhancement
 基于imgaug库开发的图形界面批量图像增强工具，支持多种增强方式的自定义选择和批量处理。
 # 批量图像增强工具
+<img width="1224" height="1294" alt="image" src="https://github.com/user-attachments/assets/95872c96-997d-4f55-89f5-67947dd77e77" />
 
 基于imgaug库开发的图形界面批量图像增强工具，支持多种增强方式的自定义选择和批量处理。
 
 ## 功能特点
 
 ### 🎯 核心功能
+
+<img width="1185" height="549" alt="image" src="https://github.com/user-attachments/assets/2e5cb2bb-ab17-4d25-a5ba-7b98964153b9" />
+<img width="1208" height="562" alt="image" src="https://github.com/user-attachments/assets/c3de119a-9b6f-4f87-9945-a347b04d6107" />
+
 - **30+种增强方式**：涵盖几何变换、颜色增强、模糊噪声、对比度调整、天气效果等
 - **图形化界面**：直观的GUI操作，无需编程知识
 - **批量处理**：支持大量图像的批量增强
