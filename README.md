@@ -1,90 +1,251 @@
-图像增强软件
-===========================
+# Image_enhancement
+基于imgaug库开发的图形界面批量图像增强工具，支持多种增强方式的自定义选择和批量处理。
+# 批量图像增强工具
+<img width="1224" height="1294" alt="image" src="https://github.com/user-attachments/assets/95872c96-997d-4f55-89f5-67947dd77e77" />
 
-<div align="center">
+基于imgaug库开发的图形界面批量图像增强工具，支持多种增强方式的自定义选择和批量处理。
 
-[![BILIBILI](https://raw.githubusercontent.com/Fafa-DL/readme-data/main/Bilibili.png)](https://space.bilibili.com/46880349)
-![](https://img.shields.io/badge/Image%20Augmentation-v3.4-brightgreen)
-[![GitHub forks](https://img.shields.io/github/forks/Fafa-DL/Image-Augmentation)](https://github.com/Fafa-DL/Image-Augmentation)
-[![GitHub stars](https://img.shields.io/github/stars/Fafa-DL/Image-Augmentation)](https://github.com/Fafa-DL/Image-Augmentation)
+## 功能特点
 
-![main](https://raw.githubusercontent.com/Fafa-DL/readme-data/main/imgaug/main_3.0.png)
+### 🎯 核心功能
 
-</div>
+<img width="1185" height="549" alt="image" src="https://github.com/user-attachments/assets/2e5cb2bb-ab17-4d25-a5ba-7b98964153b9" />
+<img width="1208" height="562" alt="image" src="https://github.com/user-attachments/assets/c3de119a-9b6f-4f87-9945-a347b04d6107" />
 
-****
-	
-|B站主页|CSDN|视频教程|公众号获取下载|直接下载|技术探讨群|
-|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|[啥都会一点的研究生](https://space.bilibili.com/46880349)|[啥都生](https://blog.csdn.net/zzh516451964zzh)|[查看教程](https://www.bilibili.com/video/BV1Sv4y1S7yb)|啥都会一点的研究生->资源合集->课程资源->序号00|[v2.5](https://github.com/Fafa-DL/Image-Augmentation/releases/download/V2.5/ImgAug2.5.exe)<br/>[v3.4](https://github.com/Fafa-DL/Image-Augmentation/releases/download/V3.4/ImgAug3.4.exe)|[一群：78174903](https://jq.qq.com/?_wv=1027&k=lY5KVICA)<br/>[三群：584723646](https://jq.qq.com/?_wv=1027&k=bakez5Yz)|
+- **30+种增强方式**：涵盖几何变换、颜色增强、模糊噪声、对比度调整、天气效果等
+- **图形化界面**：直观的GUI操作，无需编程知识
+- **批量处理**：支持大量图像的批量增强
+- **实时预览**：可预览增强效果后再批量处理
+- **配置管理**：自动保存和加载用户配置
 
-****
-## 我维护的其他项目
+### 🛠️ 技术特性
+- **多线程处理**：避免界面卡顿
+- **进度显示**：实时显示处理进度
+- **错误处理**：完善的错误提示和日志记录
+- **格式支持**：支持JPG、PNG、BMP、TIFF等格式
+- **参数可调**：每种增强方式都有预设参数
 
-- [**开箱即用，涵盖主流模型的图像分类|主干网络学习/对比/魔改项目**](https://github.com/Fafa-DL/Awesome-Backbones)
-[![GitHub stars](https://img.shields.io/github/stars/Fafa-DL/Awesome-Backbones)](https://github.com/Fafa-DL/Awesome-Backbones)
-[![GitHub forks](https://img.shields.io/github/forks/Fafa-DL/Awesome-Backbones)](https://github.com/Fafa-DL/Awesome-Backbones)
-- [**一键转换与编辑图像标注文件软件，极大提高效率**](https://github.com/Fafa-DL/LabelConvert)
-[![GitHub stars](https://img.shields.io/github/stars/Fafa-DL/LabelConvert)](https://github.com/Fafa-DL/LabelConvert)
-[![GitHub forks](https://img.shields.io/github/forks/Fafa-DL/LabelConvert)](https://github.com/Fafa-DL/LabelConvert)
+## 安装和运行
+
+### 环境要求
+- Python 3.7+
+- Windows/macOS/Linux
+
+### 快速启动
+1. 确保已安装Python 3.7+
+2. 运行启动脚本：
+   ```bash
+   python run.py
+   ```
+3. 程序会自动检查并安装所需依赖项
+
+### 手动安装依赖
+如果自动安装失败，可手动安装：
+```bash
+pip install numpy opencv-python Pillow scikit-image scipy
+```
+
+## 使用指南
+
+### 1. 基本操作流程
+
+#### 步骤1：选择文件
+- 点击"浏览"选择包含图像的输入文件夹
+- 选择输出文件夹用于保存增强后的图像
+- 设置每张图片的增强数量（1-50）
+
+#### 步骤2：选择增强方式
+程序提供6大类增强方式：
+
+**几何变换**
+- Affine：仿射变换（缩放、旋转、平移）
+- Rotate：旋转（-30到30度）
+- Scale：缩放（70%到130%）
+- Translate：平移（-20%到20%）
+- Shear：剪切（-15到15度）
+- PerspectiveTransform：透视变换
+- ElasticTransformation：弹性变换
+
+**颜色增强**
+- AddToBrightness：亮度调整（-30到30）
+- MultiplyBrightness：亮度乘法（0.7到1.3倍）
+- AddToHue：色调调整（-20到20）
+- AddToSaturation：饱和度调整（-30到30）
+- Grayscale：灰度化（50%到100%）
+- ChangeColorTemperature：色温调整（1000K到11000K）
+- Posterize：色调分离（3到7位）
+
+**模糊和噪声**
+- GaussianBlur：高斯模糊（0到1.0）
+- AverageBlur：平均模糊（2到7）
+- MedianBlur：中值模糊（3到7）
+- MotionBlur：运动模糊（3到7，角度-45到45）
+- AdditiveGaussianNoise：高斯噪声（0到12.75）
+- AdditivePoissonNoise：泊松噪声（0到10）
+- SaltAndPepper：椒盐噪声（0到5%）
+
+**对比度和锐化**
+- ContrastNormalization：对比度归一化（0.5到1.5）
+- HistogramEqualization：直方图均衡化
+- CLAHE：CLAHE（限制1到4，网格3到7）
+- Sharpen：锐化（强度0到1，亮度0.75到1.25）
+- Emboss：浮雕（强度0到1，强度0.5到1.5）
+
+**天气效果**
+- Clouds：云朵（密度0到30%）
+- Rain：雨滴（长度和宽度0.1到0.3）
+- Snowflakes：雪花（大小和密度0.1到0.3）
+- Fog：雾（密度0到30%）
+
+**边缘和纹理**
+- Canny：Canny边缘检测（强度0到1）
+- DirectedEdgeDetect：定向边缘检测（强度0到1）
+- FrequencyNoiseAlpha：频率噪声（指数-4到4，最大尺寸4到16）
+- SimplexNoiseAlpha：Simplex噪声（最大尺寸4到16）
+
+#### 步骤3：设置参数
+- **随机种子**：确保结果可重现（默认42）
+- **保持原始尺寸**：是否保持图像原始尺寸
+- **输出格式**：选择输出图像格式（PNG/JPG/BMP/TIFF）
+
+#### 步骤4：预览和批量处理
+- 点击"预览效果"查看增强效果
+- 点击"开始批量增强"开始处理
+- 可随时点击"停止处理"中断
+
+### 2. 高级功能
+
+#### 配置管理
+- **自动保存**：程序会自动保存用户设置
+- **配置加载**：可通过菜单加载其他配置文件
+- **快速选择**：点击"选择测试图片"使用内置测试数据
+
+#### 批量处理特性
+- **多线程**：处理过程不会卡住界面
+- **进度显示**：实时显示处理进度和状态
+- **错误处理**：单个文件失败不影响整体处理
+- **日志记录**：详细记录处理过程和错误信息
+
+#### 输出组织
+- 每个原始图像会创建一个子文件夹
+- 原始图像保存为 `{原文件名}_original.{格式}`
+- 增强图像保存为 `{原文件名}_aug_01.{格式}`、`{原文件名}_aug_02.{格式}` 等
+
+### 3. 使用技巧
+
+#### 增强方式组合
+- **单一增强**：选择一种增强方式，适合简单需求
+- **组合增强**：选择多种增强方式，imgaug会随机组合
+- **类别全选**：使用每个类别的"全选"按钮快速选择
+
+#### 参数调整
+- **保守设置**：对于重要数据，建议使用较小的参数范围
+- **实验设置**：可以尝试较大的参数范围获得更多变化
+- **预览验证**：批量处理前务必使用预览功能验证效果
+
+#### 性能优化
+- **批量大小**：根据计算机性能调整每张图片的增强数量
+- **输出格式**：PNG质量最高但文件较大，JPG适合存储
+- **内存管理**：处理大量图像时注意内存使用
+
+## 文件结构
+
+```
+Image-Augmentation-master/
+├── batch_image_augmentation.py          # 基础版本GUI应用
+├── batch_image_augmentation_advanced.py # 高级版本GUI应用
+├── run.py                              # 启动脚本
+├── config.json                         # 配置文件
+├── README_批量图像增强工具.md           # 使用说明
+├── pkg/                                # imgaug库文件
+│   └── imgaug/
+├── data/                               # 测试数据
+│   ├── img/                           # 测试图像
+│   ├── json/                          # JSON标注
+│   └── xml/                           # XML标注
+└── doc/                               # 文档
+    ├── images/                        # 示例图片
+    └── source/                        # 文档源码
+```
+
+## 常见问题
+
+### Q: 程序启动失败怎么办？
+A: 
+1. 检查Python版本是否为3.7+
+2. 确保已安装所有依赖项
+3. 查看错误日志，根据提示安装缺失的库
+
+### Q: 增强效果不理想怎么办？
+A:
+1. 使用预览功能测试不同参数
+2. 调整增强方式的参数范围
+3. 尝试组合不同的增强方式
+4. 参考imgaug官方文档了解参数含义
+
+### Q: 处理速度太慢怎么办？
+A:
+1. 减少每张图片的增强数量
+2. 选择计算量较小的增强方式
+3. 使用JPG格式减少文件大小
+4. 关闭不必要的增强方式
+
+### Q: 内存不足怎么办？
+A:
+1. 分批处理图像
+2. 减少同时处理的图像数量
+3. 使用较小的图像尺寸
+4. 关闭其他占用内存的程序
+
+### Q: 如何保存自定义配置？
+A:
+1. 程序会自动保存配置到config.json
+2. 可以通过菜单"文件" -> "保存配置"手动保存
+3. 可以通过菜单"文件" -> "加载配置"加载其他配置
+
+## 技术支持
+
+### 依赖库版本
+- numpy >= 1.19.0
+- opencv-python >= 4.5.0
+- Pillow >= 8.0.0
+- scikit-image >= 0.18.0
+- scipy >= 1.7.0
+
+### 系统兼容性
+- Windows 10/11
+- macOS 10.14+
+- Ubuntu 18.04+
+
+### 故障排除
+1. **依赖项问题**：运行 `python run.py` 自动检查和安装
+2. **权限问题**：确保对输入输出文件夹有读写权限
+3. **路径问题**：避免使用包含中文或特殊字符的路径
+4. **内存问题**：处理大量图像时注意内存使用
 
 ## 更新日志
 
-**`2023.12.15`**
-- 修复缺少`imagecorruptions`引起的相关错误
-- 修复某些`numpy`版本引起的相关错误
+### v2.0 (当前版本)
+- 新增高级版本GUI应用
+- 支持配置文件的保存和加载
+- 新增预览功能
+- 改进错误处理和日志记录
+- 优化用户界面和用户体验
 
-**`2023.12.02`, [V3.4](https://github.com/Fafa-DL/Image-Augmentation/releases/download/V3.4/ImgAug3.4.exe)发布**
-- 修复Issue中Numpy不兼容相关的高频问题
+### v1.0
+- 基础版本GUI应用
+- 支持30+种增强方式
+- 批量处理功能
+- 多线程处理
 
-**`2023.05.08`**
-- 修复V3.3版本按新序号命名时输出多余`.`的问题
-- 说明：遇到问题尽量把信息贴全方便复现溯源！
+## 许可证
 
-**`2022.12.03`, [V3.3](https://github.com/Fafa-DL/Image-Augmentation/releases/download/V3.3/ImgAug3.3.exe)发布** 
-- 修复由**iaa.imgcorruptlike**引起的错误，支持`imgcorruptlike`增强功能
-- 修复增强后的路径与原始增强路径一致引起的错误（但非常不建议这样做）
-- 修复文件命名中符号兼容问题，`路径与文件名请避免使用中文！！！`
+本项目基于原imgaug项目开发，遵循相应的开源许可证。
 
-**`2022.11.27`, [V3.2](https://github.com/Fafa-DL/Image-Augmentation/releases/download/V3.2/ImgAug3.2.exe)发布** 
-- 修复常规错误
-- 日志文件与弹窗包含更多信息供debug
-- **输出序号若为空，由原来从序号1开始命名更改为默认使用原文件名**
+## 贡献
 
-**`2022.11.06`, [V3.1](https://github.com/Fafa-DL/Image-Augmentation/releases/download/V3.1/ImgAug3.1.exe)发布** 
-- 支持`ppm, bmp, pgm, tif, tiff`格式
-- 更新Python及相应库至最新版本，处理速度更快
+欢迎提交问题报告和功能建议！
 
-**`2022.10.29`** 
-- 3.0版本更新，2.x系列版本详见[此处](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/readme/v2.md)
-- 集成ImgAug库所有图像增强方式，用户可灵活设计专属增强方案（仅支持png、jpg、jpeg）
-- 提升兼容性，修复因文件读取、增强结果越界、图像类型不符合等引起的闪退问题
-- 新增日志模块，软件发生错误时可在`运行目录下的log/log.log`中查看原因，对症下药
+---
 
-## 增强方式
-
-- [meta](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/meta.rst)
-- [arithmetic](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/arithmetic.rst)
-- [artistic](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/artistic.rst)
-- [blend](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/blend.rst)
-- [blur](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/blur.rst)
-- [collections](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/collections.rst)
-- [color](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/color.rst)
-- [contrast](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/contrast.rst)
-- [convolutional](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/convolutional.rst)
-- [edges](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/edges.rst)
-- [flip](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/flip.rst)
-- [geometric](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/geometric.rst)
-- [imgcorruptlike](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/imgcorruptlike.rst)
-- [pillike](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/pillike.rst)
-- [pooling](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/pooling.rst)
-- [segmentation](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/segmentation.rst)
-- [size](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/size.rst)
-- [weather](https://github.com/Fafa-DL/Image-Augmentation/blob/master/doc/source/overview/weather.rst)
-
-![demo](doc/images/examples_grid.jpg)
-
-## 参考
-```
-https://github.com/aleju/imgaug
-```
+**注意**：使用前请备份重要图像数据，确保增强效果符合预期。 
